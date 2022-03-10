@@ -2,6 +2,7 @@
 <div>HuellaComponen</div>
 <div>HuellaComponen</div>
 <div>HuellaComponen</div>
+<div>HuellaComponen</div>
 </template>
 <script>
 import { defineComponent } from 'vue';
