@@ -1,0 +1,59 @@
+    const GenerarDigitoChequeo = (Oficina, Producto, Consecutivo, Digito) => {
+      Digito = parseInt(Digito);
+      let StrNumero = [
+        parseInt(Oficina),
+        parseInt(Producto),
+        parseInt(Consecutivo),
+      ].join("");
+
+      let ArrayDigto = [0,
+        71,
+        67,
+        59,
+        53,
+        47,
+        43,
+        41,
+        37,
+        29,
+        23,
+        19,
+        17,
+        13,
+        7,
+        3,
+      ];
+      let Index = StrNumero.length;
+      console.log(
+        "GenerarDigitoChequeo StrNumero",
+        StrNumero,
+        " Index ",
+        Index
+      );
+      Digito = 0;
+      for (let i = 15; i > 0; i--) {
+        if (Index > 0) {
+          Digito += StrNumero.substr(Index, 1) * ArrayDigto[i]*1;
+          console.log(
+            "i ", i,
+            " Index ",
+            Index,
+            " Digito ",
+            Digito,
+            " extraigo ",
+            StrNumero.substr(Index, 1),
+            'ArrayDigto ',ArrayDigto[i]*1
+          );
+
+          Index--;
+        } else {
+          break;
+        }
+      }
+      //    intId2 = lngTotal Mod 11
+      //DigitoChequeo = IIf(intId2 <= 1, intId2, 11 - intId2)
+      let DigitoResul = Digito % 11;
+      Digito = DigitoResul <= 1 ? DigitoResul :  11 - DigitoResul;
+   
+      return Digito;
+    };
